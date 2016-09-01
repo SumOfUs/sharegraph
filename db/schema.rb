@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901152522) do
+ActiveRecord::Schema.define(version: 20160901155600) do
 
   create_table "share_resources", force: :cascade do |t|
     t.string   "resource_uri",             null: false
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(version: 20160901152522) do
     t.datetime "updated_at",               null: false
     t.integer  "share_count",  default: 0
     t.string   "resource_id"
+  end
+
+  create_table "shares", force: :cascade do |t|
+    t.integer  "variant_id"
+    t.string   "parent_uuid"
+    t.string   "uuid"
+    t.string   "referrer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["parent_uuid"], name: "index_shares_on_parent_uuid"
+    t.index ["uuid"], name: "index_shares_on_uuid"
+    t.index ["variant_id"], name: "index_shares_on_variant_id"
   end
 
   create_table "variants", force: :cascade do |t|
