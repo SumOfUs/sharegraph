@@ -1,5 +1,6 @@
 # type ShareResource {
-#   url: string
+#   resource_id: string
+#   resource_uri: string
 #   variants: Variant[]
 # }
 class ShareResource < ApplicationRecord

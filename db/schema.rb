@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901112104) do
+ActiveRecord::Schema.define(version: 20160901152522) do
 
   create_table "share_resources", force: :cascade do |t|
     t.string   "resource_uri",             null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "share_count",  default: 0
+    t.string   "resource_id"
   end
 
   create_table "variants", force: :cascade do |t|
